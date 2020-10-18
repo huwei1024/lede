@@ -67,18 +67,6 @@ jobs:
         run: |
           rm -f ./.config*
           touch ./.config
-
-          #
-          # 在 cat >> .config <<EOF 到 EOF 之间粘贴你的编译配置, 需注意缩进关系
-          # 例如:
-
-          cat >> .config <<EOF
-          CONFIG_TARGET_IMAGES_GZIP=y
-          CONFIG_KERNEL_BUILD_USER="OpenWrt-CI"
-          CONFIG_KERNEL_BUILD_DOMAIN="Azure"
-          EOF
-		  
-		  #
           # ========================固件定制部分========================
           # 
 
@@ -110,7 +98,6 @@ jobs:
           # 
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
-
           # 编译 树莓派4B 固件:
           cat >> .config <<EOF
           CONFIG_TARGET_brcm2708=y
